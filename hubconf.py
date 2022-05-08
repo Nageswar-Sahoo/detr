@@ -17,6 +17,7 @@ def _make_detr(backbone_name: str, dilation=False, num_classes=91, mask=False):
     backbone_with_pos_enc = Joiner(backbone, pos_enc)
     backbone_with_pos_enc.num_channels = backbone.num_channels
     transformer = Transformer(d_model=hidden_dim, return_intermediate_dec=True)
+    print("Nagesh Log")
     detr = DETR(backbone_with_pos_enc, transformer, num_classes=num_classes, num_queries=20)
     if mask:
         return DETRsegm(detr)
