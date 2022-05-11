@@ -353,7 +353,7 @@ def build(args):
     if args.masks:
         postprocessors['segm'] = PostProcessSegm()
         if args.dataset_file == "coco_panoptic":
-            is_thing_map = {i: i <= 90 for i in range(201)}
-            postprocessors["panoptic"] = PostProcessPanoptic(is_thing_map, threshold=0.85)
+            is_thing_map = {i: i <= 4 for i in range(201)}
+            postprocessors["panoptic"] = PostProcessPanoptic(is_thing_map, threshold=0.05)
 
     return model, criterion, postprocessors
