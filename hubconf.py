@@ -106,7 +106,7 @@ def detr_resnet50_panoptic(
    threshold is the minimum confidence required for keeping segments in the prediction
     """
     model = _make_detr("resnet50", dilation=False, num_classes=num_classes, mask=True)
-    is_thing_map = {i: i <= 90 for i in range(250)}
+    is_thing_map = {i: i <= 4 for i in range(250)}
     if pretrained:
         checkpoint = torch.hub.load_state_dict_from_url(
             url="https://dl.fbaipublicfiles.com/detr/detr-r50-panoptic-00ce5173.pth",
